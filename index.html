@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Countdown to 2026</title>
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+    }
 
+    .container {
+      display: flex;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    .block {
+      text-align: center;
+      min-width: 80px;
+    }
+
+    .number {
+      font-size: 32px;
+      font-weight: 600;
+    }
+
+    .label {
+      font-size: 12px;
+      opacity: 0.6;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="block">
+      <div class="number" id="days">0</div>
+      <div class="label">days</div>
+    </div>
+    <div class="block">
+      <div class="number" id="hours">0</div>
+      <div class="label">hours</div>
+    </div>
+    <div class="block">
+      <div class="number" id="minutes">0</div>
+      <div class="label">minutes</div>
+    </div>
+  </div>
+
+  <script>
+    const targetDate = new Date("2026-01-01T00:00:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) return;
+
+      const minutes = Math.floor(diff / 1000 / 60) % 60;
+      const hours = Math.floor(diff / 1000 / 60 / 60) % 24;
+      const days = Math.floor(diff / 1000 / 60 / 60 / 24);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

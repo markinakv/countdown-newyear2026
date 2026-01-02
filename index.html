@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Countdown to 2027</title>
+  <title>New Year 2027 Countdown</title>
   <style>
     body {
       margin: 0;
@@ -10,10 +10,23 @@
       font-family: Inter, system-ui, -apple-system, sans-serif;
     }
 
+    .wrapper {
+      padding: 16px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      letter-spacing: 0.08em;
+      opacity: 0.8;
+    }
+
     .container {
       display: flex;
       gap: 16px;
-      padding: 16px;
+      justify-content: center;
     }
 
     .block {
@@ -35,23 +48,26 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="block">
-      <div class="number" id="days">0</div>
-      <div class="label">days</div>
-    </div>
-    <div class="block">
-      <div class="number" id="hours">0</div>
-      <div class="label">hours</div>
-    </div>
-    <div class="block">
-      <div class="number" id="minutes">0</div>
-      <div class="label">minutes</div>
+  <div class="wrapper">
+    <div class="title">🎄 NEW YEAR 2027</div>
+
+    <div class="container">
+      <div class="block">
+        <div class="number" id="days">0</div>
+        <div class="label">days</div>
+      </div>
+      <div class="block">
+        <div class="number" id="hours">0</div>
+        <div class="label">hours</div>
+      </div>
+      <div class="block">
+        <div class="number" id="minutes">0</div>
+        <div class="label">minutes</div>
+      </div>
     </div>
   </div>
 
   <script>
-    // Countdown target: January 1, 2027, 00:00:00 (local time)
     const targetDate = new Date("2027-01-01T00:00:00");
 
     function updateCountdown() {
@@ -80,4 +96,4 @@
     setInterval(updateCountdown, 1000);
   </script>
 </body>
-</html>
+</ht

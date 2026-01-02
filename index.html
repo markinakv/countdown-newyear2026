@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Countdown to 2026</title>
+  <title>Countdown to 2027</title>
   <style>
     body {
       margin: 0;
@@ -51,17 +51,25 @@
   </div>
 
   <script>
-    const targetDate = new Date("2026-01-01T00:00:00");
+    // Countdown target: January 1, 2027, 00:00:00 (local time)
+    const targetDate = new Date("2027-01-01T00:00:00");
 
     function updateCountdown() {
       const now = new Date();
       const diff = targetDate - now;
 
-      if (diff <= 0) return;
+      if (diff <= 0) {
+        document.getElementById("days").textContent = 0;
+        document.getElementById("hours").textContent = 0;
+        document.getElementById("minutes").textContent = 0;
+        return;
+      }
 
-      const minutes = Math.floor(diff / 1000 / 60) % 60;
-      const hours = Math.floor(diff / 1000 / 60 / 60) % 24;
-      const days = Math.floor(diff / 1000 / 60 / 60 / 24);
+      const totalMinutes = Math.floor(diff / 1000 / 60);
+      const minutes = totalMinutes % 60;
+      const totalHours = Math.floor(totalMinutes / 60);
+      const hours = totalHours % 24;
+      const days = Math.floor(totalHours / 24);
 
       document.getElementById("days").textContent = days;
       document.getElementById("hours").textContent = hours;
